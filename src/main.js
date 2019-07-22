@@ -23,27 +23,35 @@ class main {
 
     console.log("successfully loaded social-share plugin");
 
-    if (this.$container) {
-      this.$container.remove();
-      if ($el) {
-        $el.prepend(this.$container);
-      }
-    } else {
+    // if (this.$container) {
+
+    //   this.$container.remove();
+      // if ($el) {
+
+        // $el.prepend(this.$container);
+      // }
+    // } else {
 
       // for the generic plugn that shares article name, link
-      const container = document.createElement("div");
+      // const container = document.createElement("div");
 
-      container.setAttribute("class", "docsie-social-share-container");
+      // container.setAttribute("class", "docsie-social-share-container");
 
-      if ($el) {
-        $el.prepend(this.$container = container);
-      }
+      // if ($el) {
+      //   $el.prepend(this.$container = container);
+      // }
+
+      let rootEle = document.getElementById("DOCSIE__ROOT")
+
+      // if (rootEle) {
+      //   $el.prepend(this.$container = container);
+      // }
 
       render(
         <View />,
-        container
+        rootEle
       );
-    }
+    // }
   }
 }
 
