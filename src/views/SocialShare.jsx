@@ -54,98 +54,100 @@ export class SocialShare extends Component {
 
     let elemArray = [];
 
-    // elemArray = this.props.iconsData.map((icon, i) => {
+    // // elemArray = this.props.iconsData.map((icon, i) => {
 
-    //               console.log("icon found in social share plugin", icon);
-    //               return <a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a>
-    //             });
+    // //               console.log("icon found in social share plugin", icon);
+    // //               return <a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a>
+    // //             });
 
-    console.log("document in socialshare jsx file", document);
+    // console.log("document in socialshare jsx file", document);
 
-    let secTitles = document.getElementsByClassName("docsie-section-title");
+    // let secTitles = document.getElementsByClassName("docsie-section-title");
 
-    // for the custom plugin shown at each section title
-    console.log("custom docsie injection found dom elements", secTitles);
+    // // for the custom plugin shown at each section title
+    // console.log("custom docsie injection found dom elements", secTitles);
 
-      // secTitles = [...secTitles];
+    //   // secTitles = [...secTitles];
 
-      // secTitles.forEach((ele, i) => {
+    //   // secTitles.forEach((ele, i) => {
 
-      //   console.log("found ele in sectiles", ele, "with index", i);
+    //   //   console.log("found ele in sectiles", ele, "with index", i);
 
-      //   this.props.iconsData.forEach((icon) => {
+    //   //   this.props.iconsData.forEach((icon) => {
 
-      //     console.log("ele in elemArray for icons", ele);
-      //     ele.append(<a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a>);
-      //   })
+    //   //     console.log("ele in elemArray for icons", ele);
+    //   //     ele.append(<a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a>);
+    //   //   })
         
-      //   console.log("ele after append", ele);
+    //   //   console.log("ele after append", ele);
 
-      //   let customDiv = document.createElement("div");
+    //   //   let customDiv = document.createElement("div");
 
-      //   console.log("ele before append", ele);
+    //   //   console.log("ele before append", ele);
 
-      //   ele.append(customDiv);
+    //   //   ele.append(customDiv);
 
-      //   console.log("ele before render", ele);
+    //   //   console.log("ele before render", ele);
 
-      //   render(
-      //     <View />,
-      //     customDiv
-      //   );
+    //   //   render(
+    //   //     <View />,
+    //   //     customDiv
+    //   //   );
 
-      //   console.log("ele after render", ele);
+    //   //   console.log("ele after render", ele);
 
-      //   // return parent;
-      // });
+    //   //   // return parent;
+    //   // });
 
-      // var list= document.getElementsByClassName("events");
-      for (let i = 0; i < secTitles.length; i++) {
+    //   // var list= document.getElementsByClassName("events");
+    //   for (let i = 0; i < secTitles.length; i++) {
 
-        let ele = secTitles[i];
+    //     let ele = secTitles[i];
 
-        console.log("found ele in sectiles", ele, "with index", i);
+    //     console.log("found ele in sectiles", ele, "with index", i);
 
-        let iconsInfo = this.props.iconsData;
+    //     let iconsInfo = this.props.iconsData;
 
         
 
-        for (let j = 0; j < iconsInfo.length; j++) {
+    //     for (let j = 0; j < iconsInfo.length; j++) {
 
-          let icon = iconsInfo[j];
+    //       let icon = iconsInfo[j];
 
-          let ele2 = document.createElement("a");
+    //       let ele2 = document.createElement("a");
 
-          ele2.setAttribute("href", icon.url);
+    //       ele2.setAttribute("href", icon.url);
 
-          ele2.setAttribute("class", icon.type);
+    //       ele2.setAttribute("class", icon.type);
           
-          ele2.addEventListener('click',function(e){
-            this.onClick(e, icon);
-         });
+    //       ele2.addEventListener('click',function(e){
+    //         this.onClick(e, icon);
+    //      });
 
-         ele2.innerHTML = icon.type;
+    //      ele2.innerHTML = icon.type;
 
-        ele.append(ele2);
+    //     ele.append(ele2);
 
-        // <a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a>
+    //     // <a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a>
 
-        console.log("ele2 in elemArray for icons appending", ele2);
+    //     console.log("ele2 in elemArray for icons appending", ele2);
           
-        }
+    //     }
 
-        console.log("ele after append", ele);
-      }
+    //     console.log("ele after append", ele);
+    //   }
 
     const {
-      iconsData
+      iconsData,
+      socPluginType
     } = this.props;
-    return <div className="docsie-social-share-plugin" role="list">
+    return <div className={socPluginType == "generic" ? "docsie-social-share-plugin-gnr" : "docsie-social-share-plugin"} role="list">
       {
         iconsData.map((icon, i) => {
 
           console.log("icon found in social share plugin", icon);
-          return <div className="anchor-wrapper"><a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a><br /></div>
+          return <div className={socPluginType == "generic" ? "anchor-wrapper-gnr" : "anchor-wrapper"}><a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a>
+          </div>
         })
       }
     </div>;

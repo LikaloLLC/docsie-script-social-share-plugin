@@ -3,7 +3,7 @@
   "name": "docsie-social-share-plugin",
   "pluginName": "social-share",
   "description": "Docsie documentation social share plugin",
-  "main": "./dist/docsie-social-share.js",
+  "main": "../social-share/dist/docsie-social-share.js",
   "src": "./src/main.js",
   "scripts": {
     "build": "rollup -c config/prod.js",

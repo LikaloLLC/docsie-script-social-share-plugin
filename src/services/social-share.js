@@ -25,21 +25,22 @@ class SocialShareService {
     // setQuery(query) {
     //     this.query = query;
     // }
-    // search(query = this.query) {
-    //     const { index } = this;
-    //     if (this.index === null || query.length < MIN_SEARCH_LENGTH) return false;
-    //     this.setQuery(query);
-    //     let results = [];
-    //     if (Boolean(query.trim()))
-    //         index.forEach(block => {
-    //             let r;
-    //             if (r = block.contains(query))
-    //                 results.push(new SearchResultModel(r, block.url));
-    //         });
-    //     return this.results = results
-    //         .sort((a, b) => (b.relevance - a.relevance))
-    //         .filter(r => r.relevance > 1);
-    // }
+    // returns url used as a link for fb and twitter
+    search(query = this.query) {
+        const { index } = this;
+        if (this.index === null || query.length < MIN_SEARCH_LENGTH) return false;
+        this.setQuery(query);
+        let results = [];
+        if (Boolean(query.trim()))
+            index.forEach(block => {
+                let r;
+                if (r = block.contains(query))
+                    results.push(new SearchResultModel(r, block.url));
+            });
+        return this.results = results
+            .sort((a, b) => (b.relevance - a.relevance))
+            .filter(r => r.relevance > 1);
+    }
     // reset() {
     //     this.query = "";
     //     this.results = [];
