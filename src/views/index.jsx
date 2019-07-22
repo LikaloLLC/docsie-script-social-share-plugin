@@ -9,6 +9,10 @@ export class View extends Component {
 
         let iconsData = SocialShareService.getIconsData();
 
+        let results = SocialShareService.search();
+        
+        console.log("results for url append", results);
+
         this.state = {
             iconsData
         };
