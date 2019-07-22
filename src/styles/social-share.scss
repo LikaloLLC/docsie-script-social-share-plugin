@@ -28,9 +28,20 @@ body {
     height: 25px;
 }
 
-// .docsie-social-share-plugin {
-//   position: absolute;
-//   left: 0;
-//   top: 50%;
-// }
+.docsie-social-share-plugin {
+  float: right;
+}
+
+.anchor-wrapper {
+  display: inline-block;
+}
   
+.anchor-wrapper-gnr {
+  display: block;
+}
+
+.docsie-social-share-plugin-gnr {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}

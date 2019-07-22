@@ -139,15 +139,14 @@ export class SocialShare extends Component {
 
     const {
       iconsData,
-      // socPluginType
+      socPluginType
     } = this.props;
-    return <div className="docsie-social-share-plugin" role="list">
+    return <div className={socPluginType == "generic" ? "docsie-social-share-plugin-gnr" : "docsie-social-share-plugin"} role="list">
       {
         iconsData.map((icon, i) => {
 
           console.log("icon found in social share plugin", icon);
-          return <div className="anchor-wrapper"><a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a>
-          {/* {socPluginType == "generic" ? <br /> : ''} */}
+          return <div className={socPluginType == "generic" ? "anchor-wrapper-gnr" : "anchor-wrapper"}><a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a>
           </div>
         })
       }

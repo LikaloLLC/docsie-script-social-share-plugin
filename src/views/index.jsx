@@ -91,7 +91,7 @@ export class View extends Component {
 
         arr.push(
             <div>
-                {createPortal(<SocialShare iconsData={iconsData}/>, ele)}
+                {createPortal(<SocialShare iconsData={iconsData} socPluginType="custom"/>, ele)}
             </div>
         );
 
@@ -136,7 +136,7 @@ export class View extends Component {
       let root = document.getElementById("DOCSIE__ROOT");
 
       const genericIcons = <div class="generic">
-                                {createPortal(<SocialShare iconsData={iconsData}/>, root)}
+                                {createPortal(<SocialShare iconsData={iconsData} socPluginType="generic"/>, root)}
                             </div>
 
         return <div>{genericIcons}{arr}</div>
