@@ -45,3 +45,25 @@ body {
   left: 0;
   top: 50%;
 }
+
+.comprehensive-view-plugin-container {
+  position: fixed;
+  bottom: 0;
+  display: none;
+  left: 50%;
+}
+
+.pure-notification-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background-color: #ff4141;
+  // animation-iteration-count: 1;
+  // animation-timing-function: ease-in;
+  // animation: pure-notification-progress;
+  /* animation-duration: 6000ms; */
+}
+
+// @keyframes pure-notification-progress{from{width:0}to{width:100%}}

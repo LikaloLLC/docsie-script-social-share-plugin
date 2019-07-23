@@ -3,7 +3,9 @@ import { DdEvent, SearchResultModel } from "models";
 import { DispatcherService, Listener } from "services";
 import { DOM } from "utils";
 
-import IconsData from "./social-icons";
+import IconsData from "./data/social-icons";
+
+import ViewOptionsData from './data/comprehensive-view-options';
 
 const MIN_SEARCH_LENGTH = 3;
 
@@ -52,6 +54,13 @@ class SocialShareService {
         console.log("IconsData returned from service", IconsData.icons);
 
         return IconsData.icons;
+    }
+
+    getViewOptions() {
+
+        console.log("comprehensive view options data returned from service", ViewOptionsData.fields);
+
+        return ViewOptionsData.fields;
     }
 }
 
