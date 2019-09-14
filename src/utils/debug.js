@@ -1,1 +1,0 @@
-export const DEBUG = window["___DEBUG"];

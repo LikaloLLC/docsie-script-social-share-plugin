@@ -1,10 +1,13 @@
 import { Component } from "inferno";
-import { autobind } from "decorators";
-import { Route } from "utils";
 import { Icon } from "./Icon";
 
 export class SocialShare extends Component {
-  @autobind
+
+
+  constructor(props) {
+    super(props);
+  }
+
   onClick(e, icon) {
 
     console.log("event click in social -share plugin", e, icon);
@@ -47,7 +50,7 @@ export class SocialShare extends Component {
     }
     console.log("updated icon data for navigation in onclick event", icon);
 
-    Route.Go(icon.url);
+    window.open(icon.url);
   }
   
   render() {
@@ -61,7 +64,7 @@ export class SocialShare extends Component {
         iconsData.map((icon, i) => {
 
           console.log("icon found in social share plugin", icon);
-          return <div className={socPluginType == "generic" ? "anchor-wrapper-gnr" : "anchor-wrapper"}><a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)}><Icon type={icon.type} /></a>
+          return <div className={socPluginType == "generic" ? "anchor-wrapper-gnr" : "anchor-wrapper"}><a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)} target="_blank"><Icon type={icon.type} /></a>
           </div>
         })
       }

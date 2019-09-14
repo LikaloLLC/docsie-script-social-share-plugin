@@ -1,67 +1,24 @@
-import { autobind } from "decorators";
-import { DdEvent, SearchResultModel } from "models";
-import { DispatcherService, Listener } from "services";
-import { DOM } from "utils";
-
 import IconsData from "./data/social-icons";
 
-import ViewOptionsData from './data/comprehensive-view-options';
+// import ViewOptionsData from './data/comprehensive-view-options';
 
 const MIN_SEARCH_LENGTH = 3;
 
-class SocialShareService {
-    constructor() {
-        const listener = this.listener = new Listener(DdEvent.INDEX, this.onUpdate);
-        this.index = null;
-        // this.reset();
-        DispatcherService.add(listener);
-    }
-    // @autobind
-    // onUpdate(e) {
-    //     debugger;
-    //     this.index = e.detail.index || [];
-    // }
-    // setIndex(index) {
-    //     this.index = index;
-    // }
-    // setQuery(query) {
-    //     this.query = query;
-    // }
-    // returns url used as a link for fb and twitter
-    search(query = this.query) {
-        const { index } = this;
-        if (this.index === null || query.length < MIN_SEARCH_LENGTH) return false;
-        this.setQuery(query);
-        let results = [];
-        if (Boolean(query.trim()))
-            index.forEach(block => {
-                let r;
-                if (r = block.contains(query))
-                    results.push(new SearchResultModel(r, block.url));
-            });
-        return this.results = results
-            .sort((a, b) => (b.relevance - a.relevance))
-            .filter(r => r.relevance > 1);
-    }
-    // reset() {
-    //     this.query = "";
-    //     this.results = [];
-    // }
+// return Icon configurable obj for social-share icons
+function getIconsData() {
 
-    // return Icon configurable obj for social-share icons
-    getIconsData() {
+    console.log("IconsData returned from service", IconsData.icons);
 
-        console.log("IconsData returned from service", IconsData.icons);
-
-        return IconsData.icons;
-    }
-
-    getViewOptions() {
-
-        console.log("comprehensive view options data returned from service", ViewOptionsData.fields);
-
-        return ViewOptionsData.fields;
-    }
+    return IconsData.icons;
 }
 
-export default new SocialShareService();
+// function getViewOptions() {
+
+//     console.log("comprehensive view options data returned from service", ViewOptionsData.fields);
+
+//     return ViewOptionsData.fields;
+// }
+
+const SocialShareService = { getIconsData }
+
+export default SocialShareService;
