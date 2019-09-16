@@ -10,7 +10,7 @@ export class SocialShare extends Component {
 
   onClick(e, icon) {
 
-    console.log("event click in social -share plugin", e, icon);
+    // console.log("event click in social -share plugin", e, icon);
 
     e.preventDefault();
     e.stopPropagation();
@@ -21,7 +21,7 @@ export class SocialShare extends Component {
 
       let title = titleEle[0].innerHTML;
 
-      console.log("document.getElementsByTagName('h1')", document.getElementsByTagName('h1'));
+      // console.log("document.getElementsByTagName('h1')", document.getElementsByTagName('h1'));
 
       // console.log("social-plugin-container", title);
 
@@ -34,7 +34,7 @@ export class SocialShare extends Component {
       link = encodeURI(link);
 
       // concatenate the text that is shared on social media
-      let sharedText = "'" + title + "'" + link;
+      let sharedText = "'" + title + "' " + link;
 
       icon.url = icon.url + sharedText;
 
@@ -48,7 +48,7 @@ export class SocialShare extends Component {
       icon.url = icon.url + link;
 
     }
-    console.log("updated icon data for navigation in onclick event", icon);
+    // console.log("updated icon data for navigation in onclick event", icon);
 
     window.open(icon.url);
   }
@@ -63,7 +63,7 @@ export class SocialShare extends Component {
       {
         iconsData.map((icon, i) => {
 
-          console.log("icon found in social share plugin", icon);
+          // console.log("icon found in social share plugin", icon);
           return <div className={socPluginType == "generic" ? "anchor-wrapper-gnr" : "anchor-wrapper"}><a href={icon.url} className={icon.type} onClick={(e) => this.onClick(e, icon)} target="_blank"><Icon type={icon.type} /></a>
           </div>
         })

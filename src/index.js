@@ -3,7 +3,7 @@ import './index.css';
 import View from './views/index';
 import * as serviceWorker from './serviceWorker';
 
-console.log("inside plugin render function, about to append social-share plugin", document);
+// console.log("inside plugin render function, about to append social-share plugin", document);
 
 document.addEventListener("DOMContentLoaded", function(event) { 
 
