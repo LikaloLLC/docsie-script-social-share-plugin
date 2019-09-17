@@ -7,7 +7,7 @@ const MIN_SEARCH_LENGTH = 3;
 // return Icon configurable obj for social-share icons
 function getIconsData() {
 
-    console.log("IconsData returned from service", IconsData.icons);
+    // console.log("IconsData returned from service", IconsData.icons);
 
     return IconsData.icons;
 }
