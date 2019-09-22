@@ -1,6 +1,10 @@
 import { Component } from "inferno";
 import { Icon } from "./Icon";
 
+import { SocialShareService } from "../services/index";
+
+import { tinyUrl } from '../common';
+
 export class SocialShare extends Component {
 
 
@@ -33,8 +37,10 @@ export class SocialShare extends Component {
 
       link = encodeURI(link);
 
+      title = title.replace("#", "%23");
+
       // concatenate the text that is shared on social media
-      let sharedText = "'" + title + "' " + link;
+      let sharedText = '"' + title + '" ' + link;
 
       icon.url = icon.url + sharedText;
 
@@ -48,9 +54,27 @@ export class SocialShare extends Component {
       icon.url = icon.url + link;
 
     }
-    // console.log("updated icon data for navigation in onclick event", icon);
 
     window.open(icon.url);
+
+    // TODO: UNDO THE FOLLOWING ONCE THE TINYURL IS READY 
+    // console.log("updated icon data for navigation in onclick event", icon);
+
+    // let data = {
+    //             "longUrl": icon.url
+    //            }
+
+    // update url to tiny url
+    // SocialShareService.getTinyUrl(tinyUrl, data)
+    // .then(data => {
+    //                 console.log(data);
+
+    //                 window.open(icon.url);
+
+    // }) // JSON-string from `response.json()` call
+    // .catch(error => {
+    //   console.error(error);
+    // });
   }
   
   render() {
