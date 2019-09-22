@@ -1,0 +1,1 @@
+export const tinyUrl = "https://tiny.docsie.io/create";
